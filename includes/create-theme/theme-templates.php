@@ -61,6 +61,24 @@ class CBT_Theme_Templates {
 	 * @return object|bool The template if it should be included, or false if it should be excluded.
 	 */
 	static function should_include_template( $template, $export_type, $path ) {
+		// Create code for exluding templates based on array template given
+		// error_Log(json_encode($template->slug));
+	
+		$exclude_templates = [
+			'product-search-results',
+			'archive-product',
+			'single-campaign',
+			'taxonomy-product_attribute',
+			'taxonomy-product_tag',
+			'taxonomy-product_cat',
+			'taxonomy-product_brand',
+			'coming-soon-social-links',
+		];
+	
+		if (in_array($template->slug, $exclude_templates)) {
+		    return false;
+		}
+		
 		if ( 'theme' === $template->source && 'user' === $export_type ) {
 			return false;
 		}
