@@ -63,7 +63,7 @@ class CBT_Theme_Templates {
 	static function should_include_template( $template, $export_type, $path ) {
 		// Create code for exluding templates based on array template given
 		// error_Log(json_encode($template->slug));
-	
+
 		$exclude_templates = [
 			'product-search-results',
 			'archive-product',
@@ -73,6 +73,14 @@ class CBT_Theme_Templates {
 			'taxonomy-product_cat',
 			'taxonomy-product_brand',
 			'coming-soon-social-links',
+			'single-product',
+			'order-confirmation',
+			'page-cart',
+			'checkout-header',
+			'external-product-add-to-cart-with-options',
+			'grouped-product-add-to-cart-with-options',
+			'simple-product-add-to-cart-with-options',
+			'variable-product-add-to-cart-with-options',
 		];
 	
 		if (in_array($template->slug, $exclude_templates)) {
